@@ -2,24 +2,26 @@ from bs4 import BeautifulSoup
 from bs4.element import NavigableString, Tag
 import requests
 
-course_url = 'https://oscar.gatech.edu/bprod/bwckctlg.p_disp_course_detail?cat_term_in=202602&subj_code_in=AE&crse_numb_in=1601'
-course = requests.get(course_url).text
-soup = BeautifulSoup(course, 'html.parser')
+def prereq_scraper(dept, course_code):
+    course_url = f'https://oscar.gatech.edu/bprod/bwckctlg.p_disp_course_detail?cat_term_in=202602&subj_code_in={dept}&crse_numb_in={course_code}'
+    course = requests.get(course_url).text
+    soup = BeautifulSoup(course, 'html.parser')
 
-prereq_string = ""
+    prereq_string = ""
 
-prereq_block = soup.find('span', class_='fieldlabeltext', string='Prerequisites: ')
+    prereq_block = soup.find('span', class_='fieldlabeltext', string='Prerequisites: ')
 
-if prereq_block is not None:
-    for item in prereq_block.next_siblings:
-        if isinstance(item, NavigableString):
-            prereq_string += item.strip()
-        elif isinstance(item, Tag):
-            if (item.string is not None):
-                prereq_string += item.string
-        prereq_string += " "
+    if prereq_block is not None:
+        for item in prereq_block.next_siblings:
+            if isinstance(item, NavigableString):
+                prereq_string += item.strip()
+            elif isinstance(item, Tag):
+                if (item.string is not None):
+                    prereq_string += item.string
+            prereq_string += " "
 
-prereq_string = prereq_string.replace('(', '( ')
-prereq_string = prereq_string.replace(')', ' )')
-prereq_string = ' '.join(prereq_string.split())
-print(prereq_string.strip())
+    prereq_string = prereq_string.replace('(', '( ')
+    prereq_string = prereq_string.replace(')', ' )')
+    prereq_string = ' '.join(prereq_string.split())
+
+    return prereq_string.strip()
