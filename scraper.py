@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from bs4.element import NavigableString, Tag
 import requests
 
-course_url = 'https://oscar.gatech.edu/bprod/bwckctlg.p_disp_course_detail?cat_term_in=202602&subj_code_in=MATH&crse_numb_in=2551'
+course_url = 'https://oscar.gatech.edu/bprod/bwckctlg.p_disp_course_detail?cat_term_in=202602&subj_code_in=AE&crse_numb_in=1601'
 course = requests.get(course_url).text
 soup = BeautifulSoup(course, 'html.parser')
 
@@ -19,5 +19,7 @@ if prereq_block is not None:
                 prereq_string += item.string
         prereq_string += " "
 
-
+prereq_string = prereq_string.replace('(', '( ')
+prereq_string = prereq_string.replace(')', ' )')
+prereq_string = ' '.join(prereq_string.split())
 print(prereq_string.strip())
