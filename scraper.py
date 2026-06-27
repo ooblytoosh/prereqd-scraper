@@ -131,7 +131,7 @@ def tokenize(prereq_string):
         token = token_list[i]
         if token in keys:
             tokens.append(token)
-        elif token in course_codes and token_list[i+1][1].isnumeric():
+        elif token in course_codes and token_list[i+1][0].isnumeric():
             tokens.append(f'{token} {token_list[i+1]}')
         i += 1
     
@@ -143,3 +143,25 @@ def tokenize(prereq_string):
             cleaned_tokens.append(token)
 
     return cleaned_tokens
+
+def parser(tokens, position):
+    items = []
+    operator = None
+
+    while position[0] < len(tokens):
+        token = tokens[position[0]]
+        position[0] += 1
+        if token == '(':
+            items.append(parser(tokens, position))
+        elif token == 'and':
+            operator = 'and'
+        elif token == 'or':
+            operator = 'or'
+        elif token == ')':
+            break
+        else:
+            items.append(token)
+
+    return {operator: items}
+
+print(parser(tokenize(scrape_prereqs('MATH', '2552')), [0]))
