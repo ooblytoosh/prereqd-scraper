@@ -1,15 +1,15 @@
 from bs4 import BeautifulSoup
 from bs4.element import NavigableString, Tag
 from constants import COURSE_CODES
-import requests, json
+import requests
 
-def scrape_prereqs(dept, course_code):
+
+def scrape_prereqs(dept, course_code, session):
     course_url = f'https://oscar.gatech.edu/bprod/bwckctlg.p_disp_course_detail?cat_term_in=202602&subj_code_in={dept}&crse_numb_in={course_code}'
-    course = requests.get(course_url).text
-    soup = BeautifulSoup(course, 'html.parser')
+    course = session.get(course_url).text
+    soup = BeautifulSoup(course, 'lxml')
 
     prereq_string = ""
-
     prereq_block = soup.find('span', class_='fieldlabeltext', string='Prerequisites: ')
 
     if prereq_block is not None:
@@ -17,7 +17,7 @@ def scrape_prereqs(dept, course_code):
             if isinstance(item, NavigableString):
                 prereq_string += item.strip()
             elif isinstance(item, Tag):
-                if (item.string is not None):
+                if item.string is not None:
                     prereq_string += item.string
             prereq_string += " "
 
@@ -33,20 +33,21 @@ def scrape_prereqs(dept, course_code):
 
     return (course_name, prereq_string.strip())
 
+
 def tokenize(prereq_string):
     tokens = []
     keys = ['and', 'or', '(', ')']
     i = 0
     token_list = prereq_string.split()
-    
+
     while i < len(token_list):
         token = token_list[i]
         if token in keys:
             tokens.append(token)
-        elif token in COURSE_CODES and token_list[i+1][0].isnumeric():
-            tokens.append(f'{token} {token_list[i+1]}')
+        elif token in COURSE_CODES and token_list[i + 1][0].isnumeric():
+            tokens.append(f'{token} {token_list[i + 1]}')
         i += 1
-    
+
     cleaned_tokens = []
     for token in tokens:
         if (token == 'or' or token == 'and') and cleaned_tokens and cleaned_tokens[-1] == token:
@@ -55,6 +56,7 @@ def tokenize(prereq_string):
             cleaned_tokens.append(token)
 
     return cleaned_tokens
+
 
 def parser(tokens, position):
     items = []
