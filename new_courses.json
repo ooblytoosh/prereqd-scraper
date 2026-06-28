@@ -1,0 +1,723 @@
+{
+  "ACCT 2101": {
+    "name": "Principles of Accounting I",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "ACCT 2102": {
+    "name": "Principles of Accounting II",
+    "prereqs": {
+      "and": [
+        "ACCT 2101"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 1355": {
+    "name": "Design Competition I",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 1601": {
+    "name": "Introduction to AE",
+    "prereqs": {
+      "or": [
+        "MATH 1501",
+        "MATH 1511",
+        "MATH 15X1",
+        "MATH 1551"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 1XXX": {
+    "name": "Aerospace Engr Elective",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 2010": {
+    "name": "Thermodyn&Fluids Fundam",
+    "prereqs": {
+      "and": [
+        {
+          "or": [
+            "MATH 2401",
+            "MATH 2411",
+            "MATH 24X1",
+            "MATH 2551",
+            "MATH 2561",
+            "MATH 2X51"
+          ]
+        },
+        {
+          "or": [
+            "PHYS 2211",
+            "PHYS 2231"
+          ]
+        },
+        {
+          "or": [
+            "CHEM 1310",
+            "CHEM 1211K"
+          ]
+        }
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 2010R": {
+    "name": "AE 2010 Recitation",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 2011": {
+    "name": "Fluids Fundamentals",
+    "prereqs": {
+      "and": [
+        "ME 3322"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 2011R": {
+    "name": "AE 2011 Recitation",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 2220": {
+    "name": "Dynamics",
+    "prereqs": {
+      "and": [
+        "COE 2001",
+        {
+          "or": [
+            "MATH 2403",
+            "MATH 2413",
+            "MATH 24X3",
+            "MATH 2552",
+            "MATH 2562",
+            "MATH 2X52"
+          ]
+        }
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 2220R": {
+    "name": "AE 2220 Recitation",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 2221": {
+    "name": "3D Dynamics",
+    "prereqs": {
+      "or": [
+        "COE 2001",
+        "CEE 2040",
+        {
+          "and": [
+            "MATH 2552"
+          ]
+        },
+        {
+          "and": [
+            "MATH 2562"
+          ]
+        },
+        {
+          "and": [
+            "MATH 25X2"
+          ]
+        },
+        {
+          "and": [
+            "MATH 2403"
+          ]
+        },
+        {
+          "and": [
+            "MATH 2413"
+          ]
+        },
+        {
+          "and": [
+            "MATH 24X3"
+          ]
+        }
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 2221R": {
+    "name": "AE 2221 Recitation",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 2355": {
+    "name": "Design Competition II",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 2610": {
+    "name": "Intro Exper Methods AE",
+    "prereqs": {
+      "and": [
+        "AE 1601",
+        {
+          "or": [
+            "PHYS 2212",
+            "PHYS 2232"
+          ]
+        },
+        {
+          "or": [
+            "MATH 2401",
+            "MATH 2411",
+            "MATH 24X1",
+            "MATH 2551",
+            "MATH 2561",
+            "MATH 2X51"
+          ]
+        },
+        "COE 2001"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 2611": {
+    "name": "Technical Commun for AE",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 2698": {
+    "name": "Research Assistantship",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 2699": {
+    "name": "Undergraduate Research",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 2801": {
+    "name": "Special Topics",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 2810": {
+    "name": "Special Topics",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 2XXX": {
+    "name": "Aerospace Engr Elective",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 3030": {
+    "name": "Aerodynamics",
+    "prereqs": {
+      "and": [
+        "AE 2010"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 3030R": {
+    "name": "Aerodynamics Recitation",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 3140": {
+    "name": "Structural Analysis",
+    "prereqs": {
+      "and": [
+        "COE 3001"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 3330": {
+    "name": "Intro AE Vehicle Perform",
+    "prereqs": {
+      "and": [
+        {
+          "or": [
+            "MATH 2403",
+            "MATH 2413",
+            "MATH 24X3",
+            "MATH 2552",
+            "MATH 2562",
+            "MATH 2X52"
+          ]
+        },
+        "AE 3030"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 3355": {
+    "name": "Design Competition III",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 3530": {
+    "name": "Sys Dynamics&Vibration",
+    "prereqs": {
+      "and": [
+        "AE 2220",
+        {
+          "or": [
+            "MATH 2403",
+            "MATH 2413",
+            "MATH 24X3",
+            "MATH 2552",
+            "MATH 2562",
+            "MATH 2X52"
+          ]
+        }
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 3531": {
+    "name": "Ctrl Sys Analysis&Design",
+    "prereqs": {
+      "and": [
+        "AE 3530"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 3610": {
+    "name": "Exper Fluids&Solid Mech",
+    "prereqs": {
+      "and": [
+        "COE 3001",
+        "AE 2610",
+        "AE 2010"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 3XXX": {
+    "name": "Aerospace Engr Elective",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 4040": {
+    "name": "Computational Fluid Dyn",
+    "prereqs": {
+      "and": [
+        "AE 3021"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4071": {
+    "name": "Rotorcraft Aeromechanics",
+    "prereqs": {
+      "and": [
+        "AE 3030",
+        "AE 3530"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4080": {
+    "name": "Aerothermodynamics",
+    "prereqs": {
+      "and": [
+        "AE 3021"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4132": {
+    "name": "Finite Element Analysis",
+    "prereqs": {
+      "and": [
+        "COE 3001"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4220": {
+    "name": "Aeroelasticity",
+    "prereqs": {
+      "and": [
+        "AE 3125",
+        "AE 3515"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4311": {
+    "name": "Aircraft Design I",
+    "prereqs": {
+      "and": [
+        "AE 3330"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4312": {
+    "name": "Aircraft Design II",
+    "prereqs": {
+      "or": [
+        "AE 4311",
+        "AE 4321",
+        "AE 4331"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4321": {
+    "name": "Space System Design I",
+    "prereqs": {
+      "and": [
+        "AE 3330"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4322": {
+    "name": "Space System Design II",
+    "prereqs": {
+      "or": [
+        "AE 4311",
+        "AE 4321",
+        "AE 4331"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4331": {
+    "name": "Rotorcraft Design I",
+    "prereqs": {
+      "and": [
+        "AE 3330"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4332": {
+    "name": "Rotorcraft Design II",
+    "prereqs": {
+      "or": [
+        "AE 4311",
+        "AE 4321",
+        "AE 4331"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4341": {
+    "name": "Aircraft Design",
+    "prereqs": {
+      "and": [
+        "AE 3330",
+        "AE 3340"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4342": {
+    "name": "Space System Design",
+    "prereqs": {
+      "and": [
+        "AE 3330",
+        "AE 3340"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4343": {
+    "name": "Rotorcraft Design",
+    "prereqs": {
+      "and": [
+        "AE 3330",
+        "AE 3340"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4355": {
+    "name": "Design Competition IV",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 4361": {
+    "name": "Space Flight Operations",
+    "prereqs": {
+      "and": [
+        "AE 3330"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4376": {
+    "name": "Accident Causation&Safety",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 4451": {
+    "name": "Jet & Rocket Propulsion",
+    "prereqs": {
+      "or": [
+        "AE 3450",
+        "AE 2010"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4453": {
+    "name": "Adv Aircraft Propulsion",
+    "prereqs": {
+      "and": [
+        "AE 4451"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4461": {
+    "name": "Intro to Combustion",
+    "prereqs": {
+      "and": [
+        "AE 3450"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4531": {
+    "name": "Aircraft Flight Dynamics",
+    "prereqs": {
+      "and": [
+        "AE 3030",
+        "AE 3531"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4532": {
+    "name": "Spacecraft Flight Dynam",
+    "prereqs": {
+      "and": [
+        "AE 3530",
+        "AE 3330"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4552": {
+    "name": "Intro Humans & Autonomy",
+    "prereqs": {
+      "and": [
+        "AE 3515"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4580": {
+    "name": "Avionics Integration",
+    "prereqs": {
+      "and": [
+        "AE 3521",
+        "ECE 3710"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4610": {
+    "name": "Dynamics & Control Lab",
+    "prereqs": {
+      "and": [
+        "AE 2610",
+        "AE 2010",
+        "AE 3531"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4698": {
+    "name": "Research Assistantship",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 4699": {
+    "name": "Undergraduate Research",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 4701": {
+    "name": "Wind Engineering",
+    "prereqs": {
+      "and": [
+        {
+          "or": [
+            "MATH 2401",
+            "MATH 2411",
+            "MATH 24X1",
+            "MATH 2551",
+            "MATH 2561",
+            "MATH 2X51"
+          ]
+        },
+        "PHYS 2211"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4753": {
+    "name": null,
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 4760": {
+    "name": "Acoustics& Noise Control",
+    "prereqs": {
+      "or": [
+        "MATH 2403",
+        "MATH 2413",
+        "MATH 24X3",
+        "MATH 2552",
+        "MATH 2562",
+        "MATH 2X52"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4791": {
+    "name": "Mech Behavior-Composites",
+    "prereqs": {
+      "and": [
+        "COE 3001"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4793": {
+    "name": "Composite Mater& Process",
+    "prereqs": {
+      "and": [
+        "CHEM 1310",
+        "PHYS 2212"
+      ]
+    },
+    "coreqs": []
+  },
+  "AE 4802": {
+    "name": "Special Topics",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 4803": {
+    "name": "Special Topics",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 4806": {
+    "name": "Special Topics",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 4863": {
+    "name": "Special Topics",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AE 4XXX": {
+    "name": "Aerospace Engr Elective",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AECT 1000": {
+    "name": "Sci&Practc of Creativity",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AECT 1500": {
+    "name": "Creative Coding&Technlgs",
+    "prereqs": {
+      "or": [
+        "CS 1315",
+        "CS 1301",
+        "CS 1371"
+      ]
+    },
+    "coreqs": []
+  },
+  "AECT 2000": {
+    "name": "Storytelling Studio",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AECT 2030": {
+    "name": "Leaders in Prgrss&Servce",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AECT 3000": {
+    "name": "Visual Arts&Dsgn Studio1",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AECT 3100": {
+    "name": "Sound for Arts Expressn",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AECT 3200": {
+    "name": "History&Crit-Arts&Tech",
+    "prereqs": {},
+    "coreqs": []
+  },
+  "AECT 3400": {
+    "name": "Visual Arts&Dsgn Studio2",
+    "prereqs": {
+      "and": [
+        "AECT 3000",
+        "AECT 1500",
+        "AECT 2000"
+      ]
+    },
+    "coreqs": []
+  },
+  "AECT 3500": {
+    "name": "Worldbuilding Studio",
+    "prereqs": {
+      "and": [
+        "AECT 1500",
+        "AECT 2000",
+        "AECT 3000",
+        "AECT 3100"
+      ]
+    },
+    "coreqs": []
+  },
+  "AECT 4000": {
+    "name": "Senior Capstone I",
+    "prereqs": {
+      "and": [
+        "AECT 2000",
+        "AECT 3400",
+        "AECT 3500"
+      ]
+    },
+    "coreqs": []
+  },
+  "AECT 4500": {
+    "name": "Senior Capstone II",
+    "prereqs": {
+      "and": [
+        "AECT 4000"
+      ]
+    },
+    "coreqs": []
+  },
+  "APPH 1040": {
+    "name": "Sci Foundation of Health",
+    "prereqs": {},
+    "coreqs": []
+  }
+}

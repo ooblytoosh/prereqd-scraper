@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from bs4.element import NavigableString, Tag
-import requests
+from constants import COURSE_CODES
+import requests, json
 
 def scrape_prereqs(dept, course_code):
     course_url = f'https://oscar.gatech.edu/bprod/bwckctlg.p_disp_course_detail?cat_term_in=202602&subj_code_in={dept}&crse_numb_in={course_code}'
@@ -24,114 +25,25 @@ def scrape_prereqs(dept, course_code):
     prereq_string = prereq_string.replace(')', ' )')
     prereq_string = ' '.join(prereq_string.split())
 
-    return prereq_string.strip()
+    course_name = soup.find(class_='nttitle')
+    if course_name is not None:
+        course_name = course_name.string
+        if course_name is not None:
+            course_name = course_name.replace(f"{dept} {course_code} - ", '')
+
+    return (course_name, prereq_string.strip())
 
 def tokenize(prereq_string):
     tokens = []
     keys = ['and', 'or', '(', ')']
-    course_codes = {
-        'ACCT',
-        'AE',
-        'AS',
-        'APPH',
-        'ASE',
-        'ARBC',
-        'ARCH',
-        'AECT',
-        'BIOS',
-        'BIOL',
-        'BMEJ',
-        'BMED',
-        'BMEM',
-        'BC',
-        'CETL',
-        'CHBE',
-        'CHEM',
-        'CHIN',
-        'CP',
-        'CEE',
-        'COE',
-        'CLL',
-        'COS',
-        'CX',
-        'CSE',
-        'CS',
-        'COOP',
-        'UCGA',
-        'EAS',
-        'ECON',
-        'ECEP',
-        'ECE',
-        'ENGL',
-        'FS',
-        'FREE',
-        'FREN',
-        'GT',
-        'GTL',
-        'GRMN',
-        'GMC',
-        'HS',
-        'HEBW',
-        'HIN',
-        'HIST',
-        'HTS',
-        'HUM',
-        'ID',
-        'ISYE',
-        'INTA',
-        'IL',
-        'INTN',
-        'IMBA',
-        'IAC',
-        'JAPN',
-        'KOR',
-        'LATN',
-        'LS',
-        'LING',
-        'LMC',
-        'MGT',
-        'MOT',
-        'MLDR',
-        'MSE',
-        'MATH',
-        'ME',
-        'MP',
-        'MSL',
-        'ML',
-        'MUSI',
-        'NS',
-        'NEUR',
-        'NRE',
-        'PERS',
-        'PHIL',
-        'PHYS',
-        'POL',
-        'PTFE',
-        'PORT',
-        'PSYC',
-        'PUBJ',
-        'PUBP',
-        'RUSS',
-        'SCI',
-        'SLS',
-        'SS',
-        'SOC',
-        'SPAN',
-        'SWAH',
-        'VIP',
-        'WOLOF'
-
-    }
     i = 0
-
     token_list = prereq_string.split()
     
-
     while i < len(token_list):
         token = token_list[i]
         if token in keys:
             tokens.append(token)
-        elif token in course_codes and token_list[i+1][0].isnumeric():
+        elif token in COURSE_CODES and token_list[i+1][0].isnumeric():
             tokens.append(f'{token} {token_list[i+1]}')
         i += 1
     
@@ -148,9 +60,13 @@ def parser(tokens, position):
     items = []
     operator = None
 
+    if len(tokens) == 0:
+        return {}
+
     while position[0] < len(tokens):
         token = tokens[position[0]]
         position[0] += 1
+
         if token == '(':
             items.append(parser(tokens, position))
         elif token == 'and':
@@ -162,6 +78,7 @@ def parser(tokens, position):
         else:
             items.append(token)
 
-    return {operator: items}
+    if len(items) == 1 and operator is None:
+        return {'and': items}
 
-print(parser(tokenize(scrape_prereqs('MATH', '2552')), [0]))
+    return {operator: items}
