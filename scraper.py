@@ -44,7 +44,7 @@ def tokenize(prereq_string):
         token = token_list[i]
         if token in keys:
             tokens.append(token)
-        elif token in COURSE_CODES and token_list[i + 1][0].isnumeric():
+        elif token in COURSE_CODES and token_list[i + 1][0].isnumeric() and 'X' not in token_list[i + 1]:
             tokens.append(f'{token} {token_list[i + 1]}')
         i += 1
 
