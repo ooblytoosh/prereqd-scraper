@@ -1,16 +1,13 @@
 from scraper import scrape_prereqs, tokenize, parser
 import json, requests, time
 from datetime import datetime
-
-courses_dict = {}
+from constants import COURSE_LIST
 
 count = 0
-
-with open('course_list.json', 'r') as f:
-    courses = json.load(f)
+courses = {}
 
 with requests.Session() as session:
-    for course in courses:
+    for course in COURSE_LIST:
         course_components = course.split()
         dept = course_components[0]
         code = course_components[1]
@@ -28,7 +25,7 @@ with requests.Session() as session:
         tokens = tokenize(prereq_string)
         parsed_prereqs = parser(tokens, [0])
 
-        courses_dict[course] = {
+        courses[course] = {
             'name': course_name,
             'prereqs': parsed_prereqs,
             'coreqs': []
@@ -39,4 +36,4 @@ with requests.Session() as session:
         print(f"[{current_time}] ({count}/2892) Processed {course} in {duration:.2f}s")
 
 with open('courses.json', 'w') as f:
-    json.dump(courses_dict, f, indent=2)
+    json.dump(courses, f, indent=2)

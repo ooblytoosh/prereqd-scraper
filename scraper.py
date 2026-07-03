@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 from bs4.element import NavigableString, Tag
-from constants import COURSE_CODES
+from constants import COURSE_CODES, COURSE_LIST
 import requests
 
 
@@ -44,7 +44,7 @@ def tokenize(prereq_string):
         token = token_list[i]
         if token in keys:
             tokens.append(token)
-        elif token in COURSE_CODES and token_list[i + 1][0].isnumeric() and 'X' not in token_list[i + 1]:
+        elif token in COURSE_CODES:
             tokens.append(f'{token} {token_list[i + 1]}')
         i += 1
 
@@ -69,6 +69,8 @@ def parser(tokens, position):
         token = tokens[position[0]]
         position[0] += 1
 
+        if (' ' in token) and (token not in COURSE_LIST):
+            continue
         if token == '(':
             items.append(parser(tokens, position))
         elif token == 'and':
@@ -84,3 +86,4 @@ def parser(tokens, position):
         return {'and': items}
 
     return {operator: items}
+
