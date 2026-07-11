@@ -15,19 +15,19 @@ with requests.Session() as session:
         current_time = datetime.now().strftime("%H:%M:%S")
         start_time = time.perf_counter()
 
-        course_name, prereq_string = scrape_prereqs(dept, code, session)
+        course_name, prereq_string, credit_hours = scrape_prereqs(dept, code, session)
         tokens = tokenize(prereq_string)
         parsed_prereqs = parser(tokens, [0])
 
         courses[course] = {
             'name': course_name,
             'prereqs': parsed_prereqs,
-            'coreqs': []
+            'hours': credit_hours
         }
 
         duration = time.perf_counter() - start_time
         current_time = datetime.now().strftime("%H:%M:%S")
-        print(f"[{current_time}] ({count}/2855) Processed {course} in {duration:.2f}s")
+        print(f"[{current_time}] ({count}/2636) Processed {course} in {duration:.2f}s")
 
 with open('courses.json', 'w') as f:
     json.dump(courses, f, indent=2)
