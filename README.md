@@ -1,7 +1,7 @@
 # prereqd-scraper
 
 A scraper for Georgia Tech's course catalog and prerequisite data, built
-to feed [prereqd](https://github.com/your-username/prereqd) — Georgia
+to feed [prereqd](https://github.com/ooblytoosh/prereqd) — Georgia
 Tech doesn't publish a course/prerequisite API, so this pulls structured
 data out of the public OSCAR catalog pages instead.
 
